@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I LOVE YOU SAM!! 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffcccb;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #d63384;
+            animation: dance 1s infinite alternate ease-in-out;
+        }
+        @keyframes dance {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+        iframe {
+            width: 350px;
+            height: 250px;
+            border-radius: 20px;
+            margin-top: 20px;
+            border: none;
+            animation: pop 1s infinite alternate ease-in-out;
+        }
+        @keyframes pop {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .heart, .confetti {
+            position: absolute;
+            font-size: 24px;
+            animation: float 3s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+        .confetti {
+            font-size: 20px;
+            color: #ff4d6d;
+            animation: explode 1s ease-out infinite;
+        }
+        @keyframes explode {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(calc(100px - 200px * random()), calc(100px - 200px * random())) scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>I LOVE YOU SAM!! YAYYYYY 🎉💕</h1>
+
+    <!-- GIF Embed -->
+    <iframe src="https://tenor.com/embed/6758560947810528071" allowfullscreen></iframe>
+
+    <script>
+        function createFloatingHearts() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    let heart = document.createElement("div");
+                    heart.innerHTML = "❤️";
+                    heart.classList.add("heart");
+                    document.body.appendChild(heart);
+                    heart.style.left = Math.random() * window.innerWidth + "px";
+                    heart.style.bottom = "-50px";
+                    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                    setTimeout(() => { heart.remove(); }, 3000);
+                }, i * 100);
+            }
+        }
+
+        function createPartyPoppers() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    let confetti = document.createElement("div");
+                    confetti.innerHTML = "🎉";
+                    confetti.classList.add("confetti");
+                    document.body.appendChild(confetti);
+                    confetti.style.left = Math.random() * window.innerWidth + "px";
+                    confetti.style.top = Math.random() * window.innerHeight + "px";
+                    setTimeout(() => { confetti.remove(); }, 1000);
+                }, i * 50);
+            }
+        }
+
+        // Start animations
+        setInterval(createFloatingHearts, 2000);
+        setInterval(createPartyPoppers, 1500);
+    </script>
+
+</body>
+</html>
